@@ -37,9 +37,17 @@ struct ContentView: View {
                 }
             }
         }
-        .padding()
         
-        
+        .alert("Game Over", isPresented: $gameOverAlert){
+            Button("Continue"){
+                score = 0
+                reset()
+            }
+            
+        } message: {
+            Text("your final score is \(score)")
+            
+        }
     }
     
     func moveTapped(_ moveIndex: Int){
@@ -66,6 +74,13 @@ struct ContentView: View {
                     appChoice = Int.random(in: 0...2)
                     mustWin.toggle()
                 }
+    }
+    
+    func reset(){
+        appChoice = Int.random(in: 0...2)
+        mustWin = Bool.random()
+        score = 0
+        questionCount = 0
     }
 }
 
