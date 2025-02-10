@@ -17,11 +17,17 @@ struct ContentView: View {
     @State private var questionCount = 0
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 30) {
+            Text("score: \(score)")
+                .font(.title)
+            
+            Text(moves[appChoice])
+                .font(.system(size: 50))
+            
+            Text(win ? "WIN": "LOSE")
+                .font(.title2)
+                .foregroundColor(win ? .green : .red)
+            
         }
         .padding()
     }
